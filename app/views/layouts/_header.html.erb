@@ -1,13 +1,24 @@
 <nav class="navbar navbar-defaul">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#"><i class="fa fa-cube"></i> Juhimo TaskManager</a>
+      <%= link_to "<i class='fa fa-cube'></i> Juhimo TaskManager".html_safe, root_path, class: "navbar-brand" %>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <% if current_user %>
+        <li><%= link_to " Settings", edit_user_registration_path, class: "fa fa-cog" %></li>
+        <li><%= link_to " Logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
+      <% else %>
+        <li>
+        <%= link_to "About", about_path, class: "active" %>
+        </li>
+        <li>
+        <%= link_to " Login", new_user_session_path, class: "glyphicon glyphicon-log-in" %>
+        </li>
+      <% end %>
+      
+      
     </ul>
   </div>
 </nav>
