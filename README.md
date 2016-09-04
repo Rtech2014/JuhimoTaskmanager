@@ -1,1 +1,0 @@
-This is software in the category of Task Management, Project Management, Productivity and "Getting Things Done" (GTD
